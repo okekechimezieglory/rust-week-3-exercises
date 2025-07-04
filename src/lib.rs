@@ -35,7 +35,6 @@ impl CompactSize {
             bytes
         }
     }
-
     pub fn from_bytes(bytes: &[u8]) -> Result<(Self, usize), BitcoinError> {
         if bytes.is_empty() {
             return Err(BitcoinError::InsufficientBytes);
@@ -66,7 +65,6 @@ impl CompactSize {
                 ]);
                 (value, 9)
             }
-            _ => return Err(BitcoinError::InvalidFormat),
         };
 
         Ok((CompactSize::new(value), consumed))
